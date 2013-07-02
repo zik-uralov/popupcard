@@ -6,6 +6,8 @@
 .project
 .metadata
 bin/
+lib/
+obj/
 tmp/
 *.tmp
 *.bak
@@ -15,6 +17,7 @@ local.properties
 .classpath
 .settings/
 .loadpath
+*.as3proj
 
 # External tool builders
 .externalToolBuilders/

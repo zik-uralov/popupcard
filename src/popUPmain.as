@@ -127,7 +127,6 @@ package
 			plane3.pivotPoint = new Vector3D(0, -50, 0);
 			planeToAdd = new Plane( { width:60, height:80, z:0, x:30-Number(plane2.width/2),rotationZ:-45, y:45, yUp:false, material:PerAspera01, bothsides:true, back:newJpgMat} );
 		    planeToAdd.pivotPoint = new Vector3D(0, -40, 0);
-					//ls1.filters = filters;
                     
 			container = new ObjectContainer3D(
 				plane1, plane2, plane3,planeToAdd,
@@ -136,7 +135,6 @@ package
 				}
 			);
 			container.ownCanvas = false;
-			//plane1.rotationX = -100;
             
 			
 			_view.scene.addChild(container);
@@ -155,13 +153,8 @@ package
 				
 				plane2.visible = true;
 			}
-		//MySliderX.value= planeToAdd.x;
+
 	    MySliderY.value  = planeToAdd.y;
-		//MySliderZ.value = planeToAdd.z;
-		//MySliderRotX.value = Number(planeToAdd.rotationX);
-		//MySliderRotY.value = Number(planeToAdd.rotationY);
-		//MySliderRotZ.value =Number(planeToAdd.rotationZ);
-		//MySlider.value = Number(MySliderRotX.value);
 		MySliderRotX.value = Number(MySlider.value);
 		
 		}
@@ -207,11 +200,6 @@ package
         private function getToStage(e:MouseEvent3D):void {
 			stage.addChild(hero_mc);
 			hero_mc.x = 400;
-/*			plane3.filters = [new GlowFilter(0x000000, 0.4, 15, 15, 2, 1, false, false)];
-			plane3.ownCanvas = true;
-			plane1.ownCanvas = true;
-			plane2.ownCanvas = true;
-			*/
 		}
 		private function LeftButtonActive(e:Event):void {
 
@@ -219,29 +207,19 @@ package
 			TweenLite.to(plane2, 2, { rotationX:0} );
 			TweenLite.to(plane3, 2, { rotationX:0} );
 			TweenLite.to(planeToAdd, 2, { rotationX:0} );
-			//TweenLite.to(VSYOtxt, 1, { rotationX: 0, y:0, z:0, ease:Bounce.easeOut} );
 
 			
 		}
 		private function RightButtonActive(e:MouseEvent):void {
         trace(planeToAdd.x, planeToAdd.y, planeToAdd.z);
         trace("RotationY"+planeToAdd.rotationY,"RotationZ"+planeToAdd.rotationZ);
-			
-        //TweenLite.to(plane1, 1, { rotationX:90, ease:Bounce.easeOut } );
 		TweenLite.to(_cam, 1, {x:40,y:189,z:-300});
 		//_cam.lookAt(new Vector3D(100,100,100));
-		//trace(_cam.x,_cam.y,_cam.z);
 		//_cam.pivotPoint = new Vector3D(0,0,0);
-		//TweenLite.to(_cam, 1, {x:100,y:90,z:50, ease:Bounce.easeIn});
-			//TweenLite.to(plane1 , 1, { rotationX:90, ease:Bounce.easeOut } );
+
 			TweenLite.to(plane1, 2, { rotationX: -90 } );
-			//TweenLite.to(plane2, 2, { rotationX:-90} );
 			TweenLite.to(plane3, 2, { rotationX:-90} );
 			TweenLite.to(planeToAdd, 2, { rotationX:-90} );
-			//TweenLite.to(VSYOtxt, 1, { rotationX: -90, y:30, z:45, ease:Bounce.easeOut } );
-			//TweenLite.to(VSYOtxt, 1, {y:30, ease:Bounce.easeOut } );
-			//TweenLite.to(VSYOtxt, 1, { z:10, ease:Bounce.easeOut } );
-			//TweenLite.to(_cam, 1, {x:100,y:100,z:100});
 			var l:Number = (planeToAdd.width / 2) / Math.tan(-45* Math.PI/180);
 			var d:Number =l/ Math.cos( -45* Math.PI/180);
 			var j:Number = plane2.height - planeToAdd.y ;
@@ -261,10 +239,6 @@ package
 				new Vertex(planeToAdd.vertices[2].x,planeToAdd.vertices[2].y, 0), 
 				newJpgMat, new UV(0, 0), 
 				new UV(300, 0), new UV(300, 225));
-				
-				trace("planeToAdd.vertices[2].y:" + planeToAdd.vertices[3].y);
-				trace("planeToAdd.vertices[2].x:" + planeToAdd.vertices[3].x);
-				trace("planeToAdd.vertices[2].z:"+planeToAdd.vertices[2].z);
 			
 				planeToAdd.addFace(FaceMe);
 			   
@@ -280,8 +254,7 @@ package
             }
             
             private function onMouseMove( e:MouseEvent ):void {
-                //_cam.panAngle -= ( _mouseDownPoint.x - e.stageX ) / 4;
-               // _view.scene.rotationX += ( _mouseDownPoint.y - e.stageY ) / 2;
+
 				_view.scene.rotationY += ( _mouseDownPoint.x - e.stageX ) / 1;
 				//_view.scene.rotationY += ( _mouseDownPoint.y - e.stageY ) / 4;
                 _mouseDownPoint = new Point( e.stageX, e.stageY );
